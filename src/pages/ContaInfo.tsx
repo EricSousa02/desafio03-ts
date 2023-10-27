@@ -1,19 +1,25 @@
 import { Text } from "@chakra-ui/react"
 import { Link } from "react-router-dom"
+import { useContext } from 'react';
+import { AppContext } from "../components/AppContext";
+
 
 const ContaInfo = () => { 
+
+    const {isUser, isEmail} = useContext(AppContext)
+
     return (
         <>
             <Text fontSize='3xl' fontWeight='bold'>
-                Informações da conta
+                Informações da conta de {isUser}
             </Text>
             <Link to='/conta/1'>
                 <Text fontSize='xl'>
-                    Conta
+                    email da Conta: {isEmail} 
                 </Text>
             </Link>
             <a href='/conta/1'>
-                Link com tag a
+                Informações da conta
             </a>
         </>
     )
